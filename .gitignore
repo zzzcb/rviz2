@@ -1,0 +1,12 @@
+*~
+*.pyc
+bin
+build
+lib
+*.sublime-workspace
+**/.idea/**
+
+**/build/**
+**/install/**
+**/log/**
+
