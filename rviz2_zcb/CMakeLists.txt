@@ -43,24 +43,22 @@ find_package(Eigen3 REQUIRED)
 find_package(rclcpp REQUIRED)
 
 
+# source code [mesh loader]
+file(GLOB MESH_LOADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/mesh_loader/*")
+
+# source code [rviz common]
+file(GLOB RVIZ_COMMON_FILES "${CMAKE_CURRENT_SOURCE_DIR}/rviz_common/*")
 
 
 
-
-
-# #... 
-# file(GLOB FILENAMES "${CMAKE_CURRENT_SOURCE_DIR}/*")
-# #file(GLOB_RECURSE  rviz_common_files "${CMAKE_CURRENT_SOURCE_DIR}/rviz_common/*")
-# #file(GLOB_RECURSE  rviz_rendering_files "${CMAKE_CURRENT_SOURCE_DIR}/rviz_rendering/*")
-# qt_add_executable(rviz ${FILENAMES} ${rviz_common_files} ${rviz_rendering_files})
-
-# target_link_libraries(rviz PUBLIC Qt6::Widgets ${OGRE_LIBRARIES} ${libcurl_LIBRARIES})
-
-# target_include_directories(rviz PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${assimp_INCLUDE_DIRS} ${libcurl_INCLUDE_DIRS} ${Eigen_INCLUDE_DIRS})
-# target_link_libraries(rviz PUBLIC ${assimp_LIBRARIES})
-
-# if(MSVC)
-# 	set_property(TARGET rviz PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "$ENV{OGRE_HOME}/bin")
-# endif()
-
+add_executable(${PROJECT_NAME} ${MESH_LOADER_FILES} ${RVIZ_COMMON_FILES} main.cpp)
+ 
+target_link_libraries(${PROJECT_NAME} PRIVATE
+  Qt::Core Qt::Gui Qt::Widgets ${OGRE_LIBRARIES}
+  ${ASSIMP_LIBRARIES}
+  ${CURL_LIBRARIES}
+  )
+target_link_directories(${PROJECT_NAME} PRIVATE
+  "${CMAKE_CURRENT_SOURCE_DIR}"
+  )
 
