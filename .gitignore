@@ -11,5 +11,5 @@ lib
 **/log/**
 
 # vs code ide
-settings.json
-c_cpp_properties.json 
+#settings.json
+#c_cpp_properties.json 
