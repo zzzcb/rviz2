@@ -10,6 +10,12 @@
     ],
     "files.associations": {
         "qcombobox": "cpp",
-        "qcheckbox": "cpp"
+        "qcheckbox": "cpp",
+        "any": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "sstream": "cpp",
+        "chrono": "cpp"
     }
 }

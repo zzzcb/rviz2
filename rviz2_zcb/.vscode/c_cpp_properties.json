@@ -9,6 +9,7 @@
         "/opt/ros/humble/include/**",
         "/usr/include/**",
         
+        // custom
         ".",
         "/opt/ogre_1.12.1/include/**"
       ],

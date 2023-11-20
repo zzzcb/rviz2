@@ -15,7 +15,10 @@
         "/home/zcb/rviz2/rviz2_ws/src/rviz_default_plugins/include/**",
         "/home/zcb/rviz2/rviz2_ws/src/rviz_rendering/include/**",
         "/home/zcb/rviz2/rviz2_ws/src/rviz_visual_testing_framework/include/**",
-        "/usr/include/**"
+        "/usr/include/**",
+
+        // custom
+        "/opt/ogre_1.12.1/include/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

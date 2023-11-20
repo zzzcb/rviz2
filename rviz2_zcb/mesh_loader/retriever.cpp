@@ -75,7 +75,6 @@ namespace resource_retriever
 		{
 			mod_url = "file://" + url;
 		}
-		std::cout << mod_url << std::endl;
 		
 		//if (url.find("package://") == 0) {
 		//	mod_url.erase(0, strlen("package://"));
