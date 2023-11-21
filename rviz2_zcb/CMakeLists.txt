@@ -70,6 +70,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   ${CURL_LIBRARIES}
   ${OPENGL_LIBRARIES}
   ${X11_LIBRARIES}
+  rclcpp::rclcpp
   )
 target_include_directories(${PROJECT_NAME} PRIVATE
   "${CMAKE_CURRENT_SOURCE_DIR}"

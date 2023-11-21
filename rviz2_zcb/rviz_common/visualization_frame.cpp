@@ -10,7 +10,10 @@
 
 #include "globalconfig.h"
 #include "rviz_common/splash_screen.hpp"
-// #include "rviz_common/render_panel.hpp"
+#include "rviz_common/render_panel.hpp"
+#include "rviz_common/visualization_manager.hpp"
+
+#include "rviz_rendering/render_window.hpp"
 
 
 namespace rviz_common
@@ -58,14 +61,20 @@ namespace rviz_common
         qApp->processEvents();
 
         QWidget * central_widget = new QWidget(this);
-        QHBoxLayout * central_layout = new QHBoxLayout;
+        QHBoxLayout * central_layout = new QHBoxLayout(central_widget);
         central_layout->setSpacing(0);
         central_layout->setMargin(0); 
 
-        // render_panel_ = new RenderPanel(central_widget);
-
-
+        render_panel_ = new RenderPanel(central_widget);
+        central_layout->addWidget(render_panel_);
         
+        setCentralWidget(central_widget);
+
+        qApp->processEvents();
+        render_panel_->getRenderWindow()->initialize();
+
+        auto manager_ = new VisualizationManager(render_panel_,this);
+
         delete splash;
         splash = nullptr;
     }
