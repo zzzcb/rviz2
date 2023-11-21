@@ -57,7 +57,7 @@ file(GLOB MAIN_FILES main.cpp globalconfig.h globalconfig.cpp)
 file(GLOB MESH_LOADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/mesh_loader/*")
 
 # source code [rviz common]
-file(GLOB RVIZ_COMMON_FILES "${CMAKE_CURRENT_SOURCE_DIR}/rviz_common/*")
+file(GLOB_RECURSE RVIZ_COMMON_FILES "${CMAKE_CURRENT_SOURCE_DIR}/rviz_common/*")
 
 # source code [rviz rendering]
 file(GLOB RVIZ_RENDERING_FILES "${CMAKE_CURRENT_SOURCE_DIR}/rviz_rendering/*")
