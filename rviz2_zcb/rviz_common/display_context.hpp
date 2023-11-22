@@ -82,10 +82,10 @@ public:
   /// Returns the Ogre::SceneManager used for the main RenderPanel.
   virtual Ogre::SceneManager * getSceneManager() const = 0;
 
-//   /// Return the window manager, if any.
-//   virtual
-//   WindowManagerInterface *
-//   getWindowManager() const = 0;
+  /// Return the window manager, if any.
+  virtual
+  WindowManagerInterface *
+  getWindowManager() const = 0;
 
 //   /// Return a pointer to the SelectionManager.
 //   virtual
@@ -107,10 +107,10 @@ public:
 //   // FrameManagerIface *
 //   // getFrameManager() const = 0;
 
-//   /// Return the fixed frame name.
-//   virtual
-//   QString
-//   getFixedFrame() const = 0;
+   /// Return the fixed frame name.
+  virtual
+  QString
+  getFixedFrame() const = 0;
 
 //   // TODO(wjwwood): replace uint64_t with size_t unless there is a reason for it
 //   /// Return the current value of the frame count.
@@ -182,9 +182,9 @@ public:
 //   QString
 //   getHelpPath() const = 0;
 
-//   virtual
-//   std::shared_ptr<rclcpp::Clock>
-//   getClock() = 0;
+  virtual
+  std::shared_ptr<rclcpp::Clock>
+  getClock() = 0;
 
 //   virtual
 //   void
@@ -194,16 +194,16 @@ public:
 //   void
 //   unlockRender() = 0;
 
-// public Q_SLOTS:
-//   /// Queue a render.
-//   /**
-//    * Multiple calls before a render happens will only cause a single render.
-//    *
-//    * \note This function can be called from any thread.
-//    */
-//   virtual
-//   void
-//   queueRender() = 0;
+public Q_SLOTS:
+  /// Queue a render.
+  /**
+   * Multiple calls before a render happens will only cause a single render.
+   *
+   * \note This function can be called from any thread.
+   */
+  virtual
+  void
+  queueRender() = 0;
 };
 
 }  // namespace rviz_common

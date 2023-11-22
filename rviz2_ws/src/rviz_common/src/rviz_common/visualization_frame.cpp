@@ -298,24 +298,24 @@ void VisualizationFrame::initialize(
 
   connect(hide_right_dock_button_, SIGNAL(toggled(bool)), this, SLOT(hideRightDock(bool)));
 
-  central_layout->addWidget(hide_left_dock_button_, 0);
+  // central_layout->addWidget(hide_left_dock_button_, 0);
   central_layout->addWidget(render_panel_, 1);
-  central_layout->addWidget(hide_right_dock_button_, 0);
+  // central_layout->addWidget(hide_right_dock_button_, 0);
 
   central_widget->setLayout(central_layout);
 
-  // Periodically process events for the splash screen.
-  if (app_) {app_->processEvents();}
+  // // Periodically process events for the splash screen.
+  // if (app_) {app_->processEvents();}
 
-  initMenus();
+  // initMenus();
 
-  // Periodically process events for the splash screen.
-  if (app_) {app_->processEvents();}
+  // // Periodically process events for the splash screen.
+  // if (app_) {app_->processEvents();}
 
-  initToolbars();
+  // initToolbars();
 
-  // Periodically process events for the splash screen.
-  if (app_) {app_->processEvents();}
+  // // Periodically process events for the splash screen.
+  // if (app_) {app_->processEvents();}
 
   setCentralWidget(central_widget);
 
@@ -328,6 +328,7 @@ void VisualizationFrame::initialize(
 
   auto clock = rviz_ros_node.lock()->get_raw_node()->get_clock();
   manager_ = new VisualizationManager(render_panel_, rviz_ros_node, this, clock);
+  return;
   manager_->setHelpPath(help_path_);
   panel_factory_ = new PanelFactory(rviz_ros_node_, manager_);
 

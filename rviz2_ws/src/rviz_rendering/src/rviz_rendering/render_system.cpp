@@ -49,6 +49,8 @@
 
 #include "string_helper.hpp"
 
+#include <iostream>
+
 namespace rviz_rendering
 {
 
@@ -395,28 +397,28 @@ RenderSystem::setupResources()
 
 void RenderSystem::addAdditionalResourcesFromAmentIndex() const
 {
-  const std::string RVIZ_OGRE_MEDIA_RESOURCE_NAME = "rviz_ogre_media_exports";
-  std::map<std::string,
-    std::string> resource_locations = ament_index_cpp::get_resources(
-    RVIZ_OGRE_MEDIA_RESOURCE_NAME);
-  for (auto resource : resource_locations) {
-    std::string content;
-    std::string prefix_path;
-    if (ament_index_cpp::get_resource(
-        RVIZ_OGRE_MEDIA_RESOURCE_NAME, resource.first, content, &prefix_path))
-    {
-      std::vector<std::string> filenames =
-        string_helper::splitStringIntoTrimmedItems(content, '\n');
-      for (const auto & line : filenames) {
-        std::string resource_path = prefix_path + "/share/" + line;
-        if (!QDir(QString::fromStdString(resource_path)).exists()) {
-          RVIZ_RENDERING_LOG_WARNING_STREAM("Could not find folder " << resource_path);
-        }
-        Ogre::ResourceGroupManager::getSingleton().addResourceLocation(
-          resource_path, "FileSystem", "rviz_rendering");
-      }
-    }
-  }
+  // const std::string RVIZ_OGRE_MEDIA_RESOURCE_NAME = "rviz_ogre_media_exports";
+  // std::map<std::string,
+  //   std::string> resource_locations = ament_index_cpp::get_resources(
+  //   RVIZ_OGRE_MEDIA_RESOURCE_NAME);
+  // for (auto resource : resource_locations) {
+  //   std::string content;
+  //   std::string prefix_path;
+  //   if (ament_index_cpp::get_resource(
+  //       RVIZ_OGRE_MEDIA_RESOURCE_NAME, resource.first, content, &prefix_path))
+  //   {
+  //     std::vector<std::string> filenames =
+  //       string_helper::splitStringIntoTrimmedItems(content, '\n');
+  //     for (const auto & line : filenames) {
+  //       std::string resource_path = prefix_path + "/share/" + line;
+  //       if (!QDir(QString::fromStdString(resource_path)).exists()) {
+  //         RVIZ_RENDERING_LOG_WARNING_STREAM("Could not find folder " << resource_path);
+  //       }
+  //       Ogre::ResourceGroupManager::getSingleton().addResourceLocation(
+  //         resource_path, "FileSystem", "rviz_rendering");
+  //     }
+  //   }
+  // }
 }
 
 // On Intel graphics chips under X11, there sometimes comes a
